@@ -1,0 +1,32 @@
+INFO: web server starting...: 50505: 24934
+ERROR: system call: bind Errno=48 exiting pid=24934
+INFO: web server starting...: 50505: 24956
+ERROR: system call: bind Errno=48 exiting pid=24956
+INFO: web server starting...: 50505: 24966
+ERROR: system call: bind Errno=48 exiting pid=24966
+INFO: web server starting...: 50505: 24985
+INFO: request: Ha llegado una peticion: 4
+INFO: request: Entrando en el bucle de peticiones: 4
+INFO: request: Comienza la lectura de datos: 4
+INFO: request: Lectura de solicitud finalizada: 4
+INFO: request: Eliminando caracteres de retorno: 4
+INFO: request: Generando el valor de la cookie: 4
+INFO: request: Parseando peticiÃ³n...: 4
+INFO: SERVING: file: /logo-um.jpg: 4
+INFO: response: Enviando archivo: 4
+INFO: sending: Loop para el envio del archivo: 4
+INFO: send: content: HTTP/1.1 200 OK
+Server: web_sstt
+Content-Type: text/html; charset=utf-8
+Content-Length: 9558
+Date: Sat, 10 Apr 2021 12:31:17 GMTConnection: Keep-Alive
+Keep-Alive: timeout=5, max=1000
+Set-Cookie: ccount=1
+
+ÿØÿà: 4
+INFO: sending: Loop para el envio del archivo: 4
+INFO: send: content: $Ó²ô¿£ğó¾šâ1üú±©Ë*ÕNÃ,Sx	Š9É#e‰¬‘Ú;P÷8ÑP:Ûûh? wíæWˆÿ: 4
+INFO: sending: Loop para el envio del archivo: 4
+INFO: sending: Terminado correctamente: 4
+INFO: request: ...PeticiÃ³n parseaeda: 4
+INFO: persistence: Inicializando variables para la persistencia: 4

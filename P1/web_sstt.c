@@ -292,31 +292,52 @@ void sendFile(int fd, int file, char *ext, int cookie){
 	sprintf(head + strlen(head), STRSETCOOK, cookie);
 	// ----- Cargamos la cabecera ----
 	strcat(head, "\r\n");
-	char message [BUFSIZE] = {0};
-	strcat(message, head);
-	int total = contentLength + strlen(head);
+	int gotHead = 1;
+	int readed;
+	// Variable para leer el contenido del archivo
+	char fileContent [BUFSIZE];
 	// ----- Enviamos el cuerpo -----
 	// ----- Si el archivo es demasiado grande se fragmenta -----
 	do{
 		// ----- Enviar mensaje -----
 		debug(LOG, "sending", "Loop para el envio del archivo", fd);
-		// Variable para leer el contenido del archivo
-		char fileContent [BUFSIZE] = {0};
-		// Leemos el contenido del archivo
-		int readed = read(file, fileContent, BUFSIZE - strlen(message));
-		printf("\n LEIDOS: %d\n", readed);
-		// Se lo ponemos a la cabecera
-		strcat(message, fileContent);
+		// El tamaño del mensaje es el buffer
+		int sizeMessage = BUFSIZE;
+		// Pero si tiene cabecera es menor
+		if(gotHead)
+			sizeMessage -= strlen(head);
+		// Leemos la cantidad de bytes disponibles
+		readed = read(file, fileContent, sizeMessage);
+		if(readed == 0) break;
+		printf("Tamaño para leer: %d\n", sizeMessage);
+		printf("He leido: %d\n", readed);
+		// Ensamblamos el mensaje con la cabecera (si la hay)
+		char message [BUFSIZE] = {0}; 
+		if (gotHead){
+			strcat(message, head);
+			strcat(message, fileContent);
+		}else
+			strcat(message, fileContent);
+		printf("He cargado en el archivo: %d\n", strlen(message));
 		// Enviamos el mensaje
-		int writed = write(fd, message, strlen(message));
-		total = total - writed;
-		printf("\n TOTAL: %d\n", total);
+		int writed;
+		int total = 0;
 		debug(LOG, "send: content", message, fd);
+		while ((writed = write(fd, message, strlen(message) - total)) > 0) {
+			total += writed;
+		}
+		printf("He mandado: %d\n", total);
+		if (writed < 0){
+			debug(ERROR, "send: socket ", "Error al escribir por el socket", fd);
+			close(fd);
+			close(file);
+			exit(1);
+		}
+		// Eliminamos la cabecera
+		gotHead = 0;
+		total=0;
 		// Miramos si queda algo por mandar
-		// Eliminamos el contenido de la cabecera
-		free(message);
-		char message [BUFSIZE] = {0};
-	}while(total > 0);
+	}while(readed != 0);
 
 	// ----- Cerramos el archivo -----
 	debug(LOG, "sending", "Terminado correctamente", fd);
@@ -413,7 +434,6 @@ void process_web_request(int descriptorFichero)
 				//	jerarquia de directorios del sistema
 				//
 				debug(ERROR, "GET: Path", "Error en el acceso a la jerarquia de directorios", descriptorFichero);
-				free(path);
 				sendError(descriptorFichero, 403, cookie);
 				close(descriptorFichero);
 				exit(1);
@@ -427,7 +447,6 @@ void process_web_request(int descriptorFichero)
 			{
 				debug(ERROR, "GET: Path", "Extension no soportada", descriptorFichero);
 				sendError(descriptorFichero, 415, cookie);
-				free(path);
 				close(descriptorFichero);
 				exit(1);
 			}
@@ -436,20 +455,17 @@ void process_web_request(int descriptorFichero)
 				if (errno == EACCES){
 					sendError(descriptorFichero, 500, cookie);
 					debug(ERROR, "GET: Open", "Problema con permisos", descriptorFichero);
-					free(path);
 					close(descriptorFichero);
 					exit(1);
 				} else if (errno == ENOENT){
 					sendError(descriptorFichero, 404, cookie);
 					debug(ERROR, "GET: Open", "No existe el directorio", descriptorFichero);
 					debug(ERROR, "GET: Dir", path, descriptorFichero);
-					free(path);
 					close(descriptorFichero);
 					exit(1);
 				} else {
 					sendError(descriptorFichero, 500, cookie);
 					debug(ERROR, "GET: Open", "Otro problema sin determinar", descriptorFichero);
-					free(path);
 					close(descriptorFichero);
 					exit(1);
 				}
@@ -465,7 +481,7 @@ void process_web_request(int descriptorFichero)
 		//  ----------- Petición NO IMPLEMENTADA ----------- 
 		else if (strncmp("HEAD", buffer, 4) == 0 || strncmp("PUT", buffer, 3) == 0){
 			sendError(descriptorFichero, 405, cookie);
-			debug(ERROR, "OTHER", "Petición no soportada", descriptorFichero);
+			debug(ERROR, "OTHER", "Petición no implementada", descriptorFichero);
 			close(descriptorFichero);
 			exit(1);
 		}
@@ -476,7 +492,6 @@ void process_web_request(int descriptorFichero)
 			close(descriptorFichero);
 			exit(1);
 		}
-		free(path);
 		debug(LOG, "request", "...Petición parseaeda",  descriptorFichero);
 
 		//
