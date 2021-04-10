@@ -332,8 +332,6 @@ void process_web_request(int descriptorFichero)
 	fd_set readfds;
 	FD_ZERO(&readfds);
 	FD_SET(descriptorFichero, &readfds);
-	fd_set writefds;
-	fd_set exceptfds;
 	struct timeval timeout;
 	timeout.tv_sec = 30;
 	timeout.tv_usec = 0;
@@ -444,6 +442,7 @@ void process_web_request(int descriptorFichero)
 				} else if (errno == ENOENT){
 					sendError(descriptorFichero, 404, cookie);
 					debug(ERROR, "GET: Open", "No existe el directorio", descriptorFichero);
+					debug(ERROR, "GET: Dir", path, descriptorFichero);
 					free(path);
 					close(descriptorFichero);
 					exit(1);
@@ -496,9 +495,13 @@ void process_web_request(int descriptorFichero)
 		//	En caso de que el fichero sea soportado, exista, etc. se envia el fichero con la cabecera
 		//	correspondiente, y el envio del fichero se hace en blockes de un máximo de  8kB
 		//
-
+		debug(LOG, "persistence", "Inicializando variables para la persistencia",  descriptorFichero);
+		FD_ZERO(&readfds);
+		FD_SET(descriptorFichero, &readfds);
+		timeout.tv_sec = 30;
+		timeout.tv_usec = 0;
 	}
-	while (select(descriptorFichero, &readfds, &writefds, &exceptfds, &timeout));
+	while (select(descriptorFichero +1, &readfds, NULL, NULL, &timeout));
 	
 	close(descriptorFichero);
 	exit(1);
