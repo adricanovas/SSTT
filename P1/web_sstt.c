@@ -293,12 +293,12 @@ void sendFile(int fd, int file, char *ext, int cookie){
 	// ----- Cargamos la cabecera ----
 	strcat(head, "\r\n");
 	int gotHead = 1;
-	int readed;
+	size_t readed;
 	// Variable para leer el contenido del archivo
 	char fileContent [BUFSIZE];
 	// ----- Enviamos el cuerpo -----
 	// ----- Si el archivo es demasiado grande se fragmenta -----
-	do{
+	/*do{
 		// ----- Enviar mensaje -----
 		debug(LOG, "sending", "Loop para el envio del archivo", fd);
 		// El tamaño del mensaje es el buffer
@@ -311,6 +311,7 @@ void sendFile(int fd, int file, char *ext, int cookie){
 		if(readed == 0) break;
 		printf("Tamaño para leer: %d\n", sizeMessage);
 		printf("He leido: %d\n", readed);
+		printf("Pero en realidad: %d\n", strlen(fileContent));
 		// Ensamblamos el mensaje con la cabecera (si la hay)
 		char message [BUFSIZE] = {0}; 
 		if (gotHead){
@@ -318,7 +319,7 @@ void sendFile(int fd, int file, char *ext, int cookie){
 			strcat(message, fileContent);
 		}else
 			strcat(message, fileContent);
-		printf("He cargado en el archivo: %d\n", strlen(message));
+		printf("El tam total del mensaje es: %d\n", strlen(message));
 		// Enviamos el mensaje
 		int writed;
 		int total = 0;
@@ -333,15 +334,17 @@ void sendFile(int fd, int file, char *ext, int cookie){
 			close(file);
 			exit(1);
 		}
+		memset(message, 0, BUFSIZE);
 		// Eliminamos la cabecera
 		gotHead = 0;
 		total=0;
 		// Miramos si queda algo por mandar
-	}while(readed != 0);
+	}while(readed > 0);
 
 	// ----- Cerramos el archivo -----
 	debug(LOG, "sending", "Terminado correctamente", fd);
 	close(file);
+*/
 }
 
 void process_web_request(int descriptorFichero)

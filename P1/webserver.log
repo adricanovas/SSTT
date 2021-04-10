@@ -1,11 +1,44 @@
-INFO: web server starting...: 50505: 24934
-ERROR: system call: bind Errno=48 exiting pid=24934
-INFO: web server starting...: 50505: 24956
-ERROR: system call: bind Errno=48 exiting pid=24956
-INFO: web server starting...: 50505: 24966
-ERROR: system call: bind Errno=48 exiting pid=24966
-INFO: web server starting...: 50505: 24985
+INFO: web server starting...: 58080: 1622
 INFO: request: Ha llegado una peticion: 4
+INFO: request: Entrando en el bucle de peticiones: 4
+INFO: request: Comienza la lectura de datos: 4
+INFO: request: Lectura de solicitud finalizada: 4
+INFO: request: Eliminando caracteres de retorno: 4
+INFO: request: Generando el valor de la cookie: 4
+INFO: request: Parseando petici√≥n...: 4
+INFO: SERVING: file: /index.html: 4
+INFO: response: Enviando archivo: 4
+INFO: sending: Loop para el envio del archivo: 4
+INFO: send: content: HTTP/1.1 200 OK
+Server: web_sstt
+Content-Type: text/html; charset=utf-8
+Content-Length: 450
+Date: Sat, 10 Apr 2021 15:21:18 GMTConnection: Keep-Alive
+Keep-Alive: timeout=5, max=1000
+Set-Cookie: ccount=1
+
+<html>
+<head>
+        <title>Servidor Simple para Servicios Telem&acute;ticos</title>
+</head>
+<body bgcolor="lightgray">
+    <h1>Esta es una pagina de prueba</h1>
+
+    <img src="logo-um.jpg">
+    <p>Es un ejemplo simple pero funcional</p>
+    
+    <form method="POST" action="/accion_form.html">
+    Correo electr&oacute;nico:<br>
+    <input type="text" name="email" value=""><br>
+    <input type="submit" value="Enviar">
+    </form>
+</body>
+</html>
+: 4
+INFO: sending: Loop para el envio del archivo: 4
+INFO: sending: Terminado correctamente: 4
+INFO: request: ...Petici√≥n parseaeda: 4
+INFO: persistence: Inicializando variables para la persistencia: 4
 INFO: request: Entrando en el bucle de peticiones: 4
 INFO: request: Comienza la lectura de datos: 4
 INFO: request: Lectura de solicitud finalizada: 4
@@ -19,7 +52,137 @@ INFO: send: content: HTTP/1.1 200 OK
 Server: web_sstt
 Content-Type: text/html; charset=utf-8
 Content-Length: 9558
-Date: Sat, 10 Apr 2021 12:31:17 GMTConnection: Keep-Alive
+Date: Sat, 10 Apr 2021 15:21:18 GMTConnection: Keep-Alive
+Keep-Alive: timeout=5, max=1000
+Set-Cookie: ccount=1
+
+ˇÿˇ‡: 4
+INFO: sending: Loop para el envio del archivo: 4
+INFO: send: content: $Å”≤Ùø£Ûæö‚1¸˙±©À*’N√,Sx	ä9ê…#eâ¨ë⁄;P˜8—P:€˚h?†wÌÊWàˇ: 4
+INFO: sending: Loop para el envio del archivo: 4
+INFO: sending: Terminado correctamente: 4
+INFO: request: ...Petici√≥n parseaeda: 4
+INFO: persistence: Inicializando variables para la persistencia: 4
+INFO: web server starting...: 58080: 2414
+INFO: request: Ha llegado una peticion: 4
+INFO: request: Entrando en el bucle de peticiones: 4
+INFO: request: Comienza la lectura de datos: 4
+INFO: request: Lectura de solicitud finalizada: 4
+INFO: request: Eliminando caracteres de retorno: 4
+INFO: request: Generando el valor de la cookie: 4
+INFO: request: Parseando petici√≥n...: 4
+INFO: SERVING: file: /index.html: 4
+INFO: response: Enviando archivo: 4
+INFO: sending: Loop para el envio del archivo: 4
+INFO: send: content: HTTP/1.1 200 OK
+Server: web_sstt
+Content-Type: text/html; charset=utf-8
+Content-Length: 450
+Date: Sat, 10 Apr 2021 15:28:44 GMTConnection: Keep-Alive
+Keep-Alive: timeout=5, max=1000
+Set-Cookie: ccount=1
+
+<html>
+<head>
+        <title>Servidor Simple para Servicios Telem&acute;ticos</title>
+</head>
+<body bgcolor="lightgray">
+    <h1>Esta es una pagina de prueba</h1>
+
+    <img src="logo-um.jpg">
+    <p>Es un ejemplo simple pero funcional</p>
+    
+    <form method="POST" action="/accion_form.html">
+    Correo electr&oacute;nico:<br>
+    <input type="text" name="email" value=""><br>
+    <input type="submit" value="Enviar">
+    </form>
+</body>
+</html>
+: 4
+INFO: sending: Loop para el envio del archivo: 4
+INFO: sending: Terminado correctamente: 4
+INFO: request: ...Petici√≥n parseaeda: 4
+INFO: persistence: Inicializando variables para la persistencia: 4
+INFO: request: Entrando en el bucle de peticiones: 4
+INFO: request: Comienza la lectura de datos: 4
+INFO: request: Lectura de solicitud finalizada: 4
+INFO: request: Eliminando caracteres de retorno: 4
+INFO: request: Generando el valor de la cookie: 4
+INFO: request: Parseando petici√≥n...: 4
+INFO: SERVING: file: /logo-um.jpg: 4
+INFO: response: Enviando archivo: 4
+INFO: sending: Loop para el envio del archivo: 4
+INFO: send: content: HTTP/1.1 200 OK
+Server: web_sstt
+Content-Type: text/html; charset=utf-8
+Content-Length: 9558
+Date: Sat, 10 Apr 2021 15:28:44 GMTConnection: Keep-Alive
+Keep-Alive: timeout=5, max=1000
+Set-Cookie: ccount=1
+
+ˇÿˇ‡: 4
+INFO: sending: Loop para el envio del archivo: 4
+INFO: send: content: $Å”≤Ùø£Ûæö‚1¸˙±©À*’N√,Sx	ä9ê…#eâ¨ë⁄;P˜8—P:€˚h?†wÌÊWàˇ: 4
+INFO: sending: Loop para el envio del archivo: 4
+INFO: sending: Terminado correctamente: 4
+INFO: request: ...Petici√≥n parseaeda: 4
+INFO: persistence: Inicializando variables para la persistencia: 4
+INFO: web server starting...: 58080: 4037
+INFO: request: Ha llegado una peticion: 4
+INFO: request: Entrando en el bucle de peticiones: 4
+INFO: request: Comienza la lectura de datos: 4
+INFO: request: Lectura de solicitud finalizada: 4
+INFO: request: Eliminando caracteres de retorno: 4
+INFO: request: Generando el valor de la cookie: 4
+INFO: request: Parseando petici√≥n...: 4
+INFO: SERVING: file: /index.html: 4
+INFO: response: Enviando archivo: 4
+INFO: sending: Loop para el envio del archivo: 4
+INFO: send: content: HTTP/1.1 200 OK
+Server: web_sstt
+Content-Type: text/html; charset=utf-8
+Content-Length: 450
+Date: Sat, 10 Apr 2021 15:45:26 GMTConnection: Keep-Alive
+Keep-Alive: timeout=5, max=1000
+Set-Cookie: ccount=1
+
+<html>
+<head>
+        <title>Servidor Simple para Servicios Telem&acute;ticos</title>
+</head>
+<body bgcolor="lightgray">
+    <h1>Esta es una pagina de prueba</h1>
+
+    <img src="logo-um.jpg">
+    <p>Es un ejemplo simple pero funcional</p>
+    
+    <form method="POST" action="/accion_form.html">
+    Correo electr&oacute;nico:<br>
+    <input type="text" name="email" value=""><br>
+    <input type="submit" value="Enviar">
+    </form>
+</body>
+</html>
+: 4
+INFO: sending: Loop para el envio del archivo: 4
+INFO: sending: Terminado correctamente: 4
+INFO: request: ...Petici√≥n parseaeda: 4
+INFO: persistence: Inicializando variables para la persistencia: 4
+INFO: request: Entrando en el bucle de peticiones: 4
+INFO: request: Comienza la lectura de datos: 4
+INFO: request: Lectura de solicitud finalizada: 4
+INFO: request: Eliminando caracteres de retorno: 4
+INFO: request: Generando el valor de la cookie: 4
+INFO: request: Parseando petici√≥n...: 4
+INFO: SERVING: file: /logo-um.jpg: 4
+INFO: response: Enviando archivo: 4
+INFO: sending: Loop para el envio del archivo: 4
+INFO: send: content: HTTP/1.1 200 OK
+Server: web_sstt
+Content-Type: text/html; charset=utf-8
+Content-Length: 9558
+Date: Sat, 10 Apr 2021 15:45:26 GMTConnection: Keep-Alive
 Keep-Alive: timeout=5, max=1000
 Set-Cookie: ccount=1
 
