@@ -1,23 +1,45 @@
-INFO: web server starting...: 58080: 1622
+INFO: web server starting...: 58080: 37550
 INFO: request: Ha llegado una peticion: 4
 INFO: request: Entrando en el bucle de peticiones: 4
 INFO: request: Comienza la lectura de datos: 4
 INFO: request: Lectura de solicitud finalizada: 4
 INFO: request: Eliminando caracteres de retorno: 4
 INFO: request: Generando el valor de la cookie: 4
+INFO: request: petici√≥n de tipo POST: 4
+INFO: request: Parseando petici√≥n...: 4
+INFO: request: mira: POST /accion_form.html HTTP/1.1**Host: localhost:58080**User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:87.0) Gecko/20100101 Firefox/87.0**Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8**Accept-Language: es-ES,es;q=0.8,en-US;q=0.5,en;q=0.3**Accept-Encoding: gzip, deflate**Content-Type: application/x-www-form-urlencoded**Content-Length: 29**Origin: http://localhost:58080**DNT: 1**Connection: keep-alive**Referer: http://localhost:58080/**Upgrade-Insecure-Requests: 1****email=adrian.canovas1%40um.es: 4
+INFO: request: ...Petici√≥n parseaeda: 4
+INFO: persistence: Inicializando variables para la persistencia: 4
+INFO: request: Entrando en el bucle de peticiones: 4
+INFO: request: Comienza la lectura de datos: 4
+INFO: request: Lectura de solicitud finalizada: 4
+INFO: request: Eliminando caracteres de retorno: 4
+INFO: request: Generando el valor de la cookie: 4
+ERROR: Message: : Se ha producido un error, evaluando error Errno=22 exiting pid=37554
+ERROR: Message: : HTTP/1.1 405 Method Not Allowed
+ Errno=22 exiting pid=37554
+INFO: response: Enviando Mensaje Interno: 4
+ERROR: OTHER: Petici√≥n no soportada Errno=22 exiting pid=37554
+INFO: request: Ha llegado una peticion: 4
+INFO: request: Entrando en el bucle de peticiones: 4
+INFO: request: Comienza la lectura de datos: 4
+INFO: request: Lectura de solicitud finalizada: 4
+INFO: request: Eliminando caracteres de retorno: 4
+INFO: request: Generando el valor de la cookie: 4
+INFO: request: petici√≥n de tipo GET: 4
 INFO: request: Parseando petici√≥n...: 4
 INFO: SERVING: file: /index.html: 4
 INFO: response: Enviando archivo: 4
-INFO: sending: Loop para el envio del archivo: 4
 INFO: send: content: HTTP/1.1 200 OK
 Server: web_sstt
 Content-Type: text/html; charset=utf-8
 Content-Length: 450
-Date: Sat, 10 Apr 2021 15:21:18 GMTConnection: Keep-Alive
+Date: Sat, 10 Apr 2021 21:47:54 GMTConnection: Keep-Alive
 Keep-Alive: timeout=5, max=1000
-Set-Cookie: ccount=1
+Set-Cookie: ccount=1; Max-Age=120
 
-<html>
+: 4
+INFO: send: content: <html>
 <head>
         <title>Servidor Simple para Servicios Telem&acute;ticos</title>
 </head>
@@ -35,7 +57,6 @@ Set-Cookie: ccount=1
 </body>
 </html>
 : 4
-INFO: sending: Loop para el envio del archivo: 4
 INFO: sending: Terminado correctamente: 4
 INFO: request: ...Petici√≥n parseaeda: 4
 INFO: persistence: Inicializando variables para la persistencia: 4
@@ -44,45 +65,55 @@ INFO: request: Comienza la lectura de datos: 4
 INFO: request: Lectura de solicitud finalizada: 4
 INFO: request: Eliminando caracteres de retorno: 4
 INFO: request: Generando el valor de la cookie: 4
+INFO: request: petici√≥n de tipo GET: 4
 INFO: request: Parseando petici√≥n...: 4
 INFO: SERVING: file: /logo-um.jpg: 4
 INFO: response: Enviando archivo: 4
-INFO: sending: Loop para el envio del archivo: 4
 INFO: send: content: HTTP/1.1 200 OK
 Server: web_sstt
-Content-Type: text/html; charset=utf-8
+Content-Type: image/jpg; charset=utf-8
 Content-Length: 9558
-Date: Sat, 10 Apr 2021 15:21:18 GMTConnection: Keep-Alive
+Date: Sat, 10 Apr 2021 21:47:55 GMTConnection: Keep-Alive
 Keep-Alive: timeout=5, max=1000
-Set-Cookie: ccount=1
+Set-Cookie: ccount=2; Max-Age=120
 
-ˇÿˇ‡: 4
-INFO: sending: Loop para el envio del archivo: 4
-INFO: send: content: $Å”≤Ùø£Ûæö‚1¸˙±©À*’N√,Sx	ä9ê…#eâ¨ë⁄;P˜8—P:€˚h?†wÌÊWàˇ: 4
-INFO: sending: Loop para el envio del archivo: 4
+: 4
+INFO: send: content: ˇÿˇ‡: 4
+INFO: send: content:  É° í\T#Ò'»Tl2Å¥+ÑºXRüdÁóÑ≤≤ùJùJ∂6I˜˙Ωöò⁄rü¶ÎªùNf|BJÇí•7_bA˙teÅ˘Irz<)VX©è »Â5ï8+¨0Ã(Ôﬂ≤⁄mTj= ß1ÙÿÍ√±—v\ub>J«`º'\ê!ô÷R: 4
 INFO: sending: Terminado correctamente: 4
 INFO: request: ...Petici√≥n parseaeda: 4
 INFO: persistence: Inicializando variables para la persistencia: 4
-INFO: web server starting...: 58080: 2414
+INFO: request: Entrando en el bucle de peticiones: 4
+INFO: request: Comienza la lectura de datos: 4
+INFO: request: Lectura de solicitud finalizada: 4
+INFO: request: Eliminando caracteres de retorno: 4
+INFO: request: Generando el valor de la cookie: 4
+ERROR: Message: : Se ha producido un error, evaluando error Errno=22 exiting pid=37575
+ERROR: Message: : HTTP/1.1 405 Method Not Allowed
+ Errno=22 exiting pid=37575
+INFO: response: Enviando Mensaje Interno: 4
+ERROR: OTHER: Petici√≥n no soportada Errno=22 exiting pid=37575
+INFO: web server starting...: 58080: 37671
 INFO: request: Ha llegado una peticion: 4
 INFO: request: Entrando en el bucle de peticiones: 4
 INFO: request: Comienza la lectura de datos: 4
 INFO: request: Lectura de solicitud finalizada: 4
 INFO: request: Eliminando caracteres de retorno: 4
 INFO: request: Generando el valor de la cookie: 4
+INFO: request: petici√≥n de tipo GET: 4
 INFO: request: Parseando petici√≥n...: 4
 INFO: SERVING: file: /index.html: 4
 INFO: response: Enviando archivo: 4
-INFO: sending: Loop para el envio del archivo: 4
 INFO: send: content: HTTP/1.1 200 OK
 Server: web_sstt
 Content-Type: text/html; charset=utf-8
 Content-Length: 450
-Date: Sat, 10 Apr 2021 15:28:44 GMTConnection: Keep-Alive
+Date: Sat, 10 Apr 2021 21:48:57 GMTConnection: Keep-Alive
 Keep-Alive: timeout=5, max=1000
-Set-Cookie: ccount=1
+Set-Cookie: ccount=3; Max-Age=120
 
-<html>
+: 4
+INFO: send: content: <html>
 <head>
         <title>Servidor Simple para Servicios Telem&acute;ticos</title>
 </head>
@@ -100,7 +131,6 @@ Set-Cookie: ccount=1
 </body>
 </html>
 : 4
-INFO: sending: Loop para el envio del archivo: 4
 INFO: sending: Terminado correctamente: 4
 INFO: request: ...Petici√≥n parseaeda: 4
 INFO: persistence: Inicializando variables para la persistencia: 4
@@ -109,45 +139,67 @@ INFO: request: Comienza la lectura de datos: 4
 INFO: request: Lectura de solicitud finalizada: 4
 INFO: request: Eliminando caracteres de retorno: 4
 INFO: request: Generando el valor de la cookie: 4
+INFO: request: petici√≥n de tipo GET: 4
 INFO: request: Parseando petici√≥n...: 4
 INFO: SERVING: file: /logo-um.jpg: 4
 INFO: response: Enviando archivo: 4
-INFO: sending: Loop para el envio del archivo: 4
 INFO: send: content: HTTP/1.1 200 OK
 Server: web_sstt
-Content-Type: text/html; charset=utf-8
+Content-Type: image/jpg; charset=utf-8
 Content-Length: 9558
-Date: Sat, 10 Apr 2021 15:28:44 GMTConnection: Keep-Alive
+Date: Sat, 10 Apr 2021 21:48:57 GMTConnection: Keep-Alive
 Keep-Alive: timeout=5, max=1000
-Set-Cookie: ccount=1
+Set-Cookie: ccount=4; Max-Age=120
 
-ˇÿˇ‡: 4
-INFO: sending: Loop para el envio del archivo: 4
-INFO: send: content: $Å”≤Ùø£Ûæö‚1¸˙±©À*’N√,Sx	ä9ê…#eâ¨ë⁄;P˜8—P:€˚h?†wÌÊWàˇ: 4
-INFO: sending: Loop para el envio del archivo: 4
+: 4
+INFO: send: content: ˇÿˇ‡: 4
+INFO: send: content:  É° í\T#Ò'»Tl2Å¥+ÑºXRüdÁóÑ≤≤ùJùJ∂6I˜˙Ωöò⁄rü¶ÎªùNf|BJÇí•7_bA˙teÅ˘Irz<)VX©è »Â5ï8+¨0Ã(Ôﬂ≤⁄mTj= ß1ÙÿÍ√±—v\ub>J«`º'\ê!ô÷R: 4
 INFO: sending: Terminado correctamente: 4
 INFO: request: ...Petici√≥n parseaeda: 4
 INFO: persistence: Inicializando variables para la persistencia: 4
-INFO: web server starting...: 58080: 4037
+INFO: request: Entrando en el bucle de peticiones: 4
+INFO: request: Comienza la lectura de datos: 4
+INFO: request: Lectura de solicitud finalizada: 4
+INFO: request: Eliminando caracteres de retorno: 4
+INFO: request: Generando el valor de la cookie: 4
+INFO: request: petici√≥n de tipo POST: 4
+INFO: request: Parseando petici√≥n...: 4
+INFO: request: mira: POST /accion_form.html HTTP/1.1**Host: localhost:58080**User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:87.0) Gecko/20100101 Firefox/87.0**Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8**Accept-Language: es-ES,es;q=0.8,en-US;q=0.5,en;q=0.3**Accept-Encoding: gzip, deflate**Content-Type: application/x-www-form-urlencoded**Content-Length: 29**Origin: http://localhost:58080**DNT: 1**Connection: keep-alive**Referer: http://localhost:58080/**Cookie: ccount=4**Upgrade-Insecure-Requests: 1****email=adrian.canovas1%40um.es: 4
+INFO: request: post: email correcto: 4
+INFO: response: Enviando Mensaje Interno: 4
+INFO: request: ...Petici√≥n parseaeda: 4
+INFO: persistence: Inicializando variables para la persistencia: 4
+INFO: request: Entrando en el bucle de peticiones: 4
+INFO: request: Comienza la lectura de datos: 4
+INFO: request: Lectura de solicitud finalizada: 4
+INFO: request: Eliminando caracteres de retorno: 4
+INFO: request: Generando el valor de la cookie: 4
+ERROR: Message: : Se ha producido un error, evaluando error Errno=22 exiting pid=37672
+ERROR: Message: : HTTP/1.1 405 Method Not Allowed
+ Errno=22 exiting pid=37672
+INFO: response: Enviando Mensaje Interno: 4
+ERROR: OTHER: Petici√≥n no soportada Errno=22 exiting pid=37672
+INFO: web server starting...: 58080: 37865
 INFO: request: Ha llegado una peticion: 4
 INFO: request: Entrando en el bucle de peticiones: 4
 INFO: request: Comienza la lectura de datos: 4
 INFO: request: Lectura de solicitud finalizada: 4
 INFO: request: Eliminando caracteres de retorno: 4
 INFO: request: Generando el valor de la cookie: 4
+INFO: request: petici√≥n de tipo GET: 4
 INFO: request: Parseando petici√≥n...: 4
 INFO: SERVING: file: /index.html: 4
 INFO: response: Enviando archivo: 4
-INFO: sending: Loop para el envio del archivo: 4
 INFO: send: content: HTTP/1.1 200 OK
 Server: web_sstt
 Content-Type: text/html; charset=utf-8
 Content-Length: 450
-Date: Sat, 10 Apr 2021 15:45:26 GMTConnection: Keep-Alive
+Date: Sat, 10 Apr 2021 21:50:54 GMTConnection: Keep-Alive
 Keep-Alive: timeout=5, max=1000
-Set-Cookie: ccount=1
+Set-Cookie: ccount=6; Max-Age=120
 
-<html>
+: 4
+INFO: send: content: <html>
 <head>
         <title>Servidor Simple para Servicios Telem&acute;ticos</title>
 </head>
@@ -165,7 +217,6 @@ Set-Cookie: ccount=1
 </body>
 </html>
 : 4
-INFO: sending: Loop para el envio del archivo: 4
 INFO: sending: Terminado correctamente: 4
 INFO: request: ...Petici√≥n parseaeda: 4
 INFO: persistence: Inicializando variables para la persistencia: 4
@@ -174,22 +225,119 @@ INFO: request: Comienza la lectura de datos: 4
 INFO: request: Lectura de solicitud finalizada: 4
 INFO: request: Eliminando caracteres de retorno: 4
 INFO: request: Generando el valor de la cookie: 4
+INFO: request: petici√≥n de tipo GET: 4
 INFO: request: Parseando petici√≥n...: 4
 INFO: SERVING: file: /logo-um.jpg: 4
 INFO: response: Enviando archivo: 4
-INFO: sending: Loop para el envio del archivo: 4
+INFO: send: content: HTTP/1.1 200 OK
+Server: web_sstt
+Content-Type: image/jpg; charset=utf-8
+Content-Length: 9558
+Date: Sat, 10 Apr 2021 21:50:54 GMTConnection: Keep-Alive
+Keep-Alive: timeout=5, max=1000
+Set-Cookie: ccount=7; Max-Age=120
+
+: 4
+INFO: send: content: ˇÿˇ‡: 4
+INFO: send: content:  É° í\T#Ò'»Tl2Å¥+ÑºXRüdÁóÑ≤≤ùJùJ∂6I˜˙Ωöò⁄rü¶ÎªùNf|BJÇí•7_bA˙teÅ˘Irz<)VX©è »Â5ï8+¨0Ã(Ôﬂ≤⁄mTj= ß1ÙÿÍ√±—v\ub>J«`º'\ê!ô÷R: 4
+INFO: sending: Terminado correctamente: 4
+INFO: request: ...Petici√≥n parseaeda: 4
+INFO: persistence: Inicializando variables para la persistencia: 4
+INFO: request: Entrando en el bucle de peticiones: 4
+INFO: request: Comienza la lectura de datos: 4
+INFO: request: Lectura de solicitud finalizada: 4
+INFO: request: Eliminando caracteres de retorno: 4
+INFO: request: Generando el valor de la cookie: 4
+ERROR: Message: : Se ha producido un error, evaluando error Errno=22 exiting pid=37875
+ERROR: Message: : HTTP/1.1 405 Method Not Allowed
+ Errno=22 exiting pid=37875
+INFO: response: Enviando Mensaje Interno: 4
+ERROR: OTHER: Petici√≥n no soportada Errno=22 exiting pid=37875
+INFO: request: Ha llegado una peticion: 4
+INFO: request: Entrando en el bucle de peticiones: 4
+INFO: request: Comienza la lectura de datos: 4
+INFO: request: Lectura de solicitud finalizada: 4
+INFO: request: Eliminando caracteres de retorno: 4
+INFO: request: Generando el valor de la cookie: 4
+INFO: request: petici√≥n de tipo GET: 4
+INFO: request: Parseando petici√≥n...: 4
+INFO: SERVING: file: /index.html: 4
+INFO: response: Enviando archivo: 4
 INFO: send: content: HTTP/1.1 200 OK
 Server: web_sstt
 Content-Type: text/html; charset=utf-8
-Content-Length: 9558
-Date: Sat, 10 Apr 2021 15:45:26 GMTConnection: Keep-Alive
+Content-Length: 450
+Date: Sat, 10 Apr 2021 21:51:02 GMTConnection: Keep-Alive
 Keep-Alive: timeout=5, max=1000
-Set-Cookie: ccount=1
+Set-Cookie: ccount=1; Max-Age=120
 
-ˇÿˇ‡: 4
-INFO: sending: Loop para el envio del archivo: 4
-INFO: send: content: $Å”≤Ùø£Ûæö‚1¸˙±©À*’N√,Sx	ä9ê…#eâ¨ë⁄;P˜8—P:€˚h?†wÌÊWàˇ: 4
-INFO: sending: Loop para el envio del archivo: 4
+: 4
+INFO: send: content: <html>
+<head>
+        <title>Servidor Simple para Servicios Telem&acute;ticos</title>
+</head>
+<body bgcolor="lightgray">
+    <h1>Esta es una pagina de prueba</h1>
+
+    <img src="logo-um.jpg">
+    <p>Es un ejemplo simple pero funcional</p>
+    
+    <form method="POST" action="/accion_form.html">
+    Correo electr&oacute;nico:<br>
+    <input type="text" name="email" value=""><br>
+    <input type="submit" value="Enviar">
+    </form>
+</body>
+</html>
+: 4
 INFO: sending: Terminado correctamente: 4
+INFO: request: ...Petici√≥n parseaeda: 4
+INFO: persistence: Inicializando variables para la persistencia: 4
+INFO: request: Entrando en el bucle de peticiones: 4
+INFO: request: Comienza la lectura de datos: 4
+INFO: request: Lectura de solicitud finalizada: 4
+INFO: request: Eliminando caracteres de retorno: 4
+INFO: request: Generando el valor de la cookie: 4
+INFO: request: petici√≥n de tipo GET: 4
+INFO: request: Parseando petici√≥n...: 4
+INFO: SERVING: file: /logo-um.jpg: 4
+INFO: response: Enviando archivo: 4
+INFO: send: content: HTTP/1.1 200 OK
+Server: web_sstt
+Content-Type: image/jpg; charset=utf-8
+Content-Length: 9558
+Date: Sat, 10 Apr 2021 21:51:02 GMTConnection: Keep-Alive
+Keep-Alive: timeout=5, max=1000
+Set-Cookie: ccount=1; Max-Age=120
+
+: 4
+INFO: send: content: ˇÿˇ‡: 4
+INFO: send: content:  É° í\T#Ò'»Tl2Å¥+ÑºXRüdÁóÑ≤≤ùJùJ∂6I˜˙Ωöò⁄rü¶ÎªùNf|BJÇí•7_bA˙teÅ˘Irz<)VX©è »Â5ï8+¨0Ã(Ôﬂ≤⁄mTj= ß1ÙÿÍ√±—v\ub>J«`º'\ê!ô÷R: 4
+INFO: sending: Terminado correctamente: 4
+INFO: request: ...Petici√≥n parseaeda: 4
+INFO: persistence: Inicializando variables para la persistencia: 4
+INFO: request: Entrando en el bucle de peticiones: 4
+INFO: request: Comienza la lectura de datos: 4
+INFO: request: Lectura de solicitud finalizada: 4
+INFO: request: Eliminando caracteres de retorno: 4
+INFO: request: Generando el valor de la cookie: 4
+INFO: request: petici√≥n de tipo GET: 4
+INFO: request: Parseando petici√≥n...: 4
+ERROR: Message: : Se ha producido un error, evaluando error Errno=2 exiting pid=37887
+ERROR: Message: : HTTP/1.1 404 Not Found
+ Errno=2 exiting pid=37887
+INFO: response: Enviando Mensaje Interno: 4
+ERROR: GET: Open: No existe el directorio Errno=2 exiting pid=37887
+ERROR: GET: Dir: /favicon.ico Errno=2 exiting pid=37887
+INFO: request: Ha llegado una peticion: 4
+INFO: request: Entrando en el bucle de peticiones: 4
+INFO: request: Comienza la lectura de datos: 4
+INFO: request: Lectura de solicitud finalizada: 4
+INFO: request: Eliminando caracteres de retorno: 4
+INFO: request: Generando el valor de la cookie: 4
+INFO: request: petici√≥n de tipo POST: 4
+INFO: request: Parseando petici√≥n...: 4
+INFO: request: post: email correcto: 4
+INFO: response: Enviando Mensaje Interno: 4
 INFO: request: ...Petici√≥n parseaeda: 4
 INFO: persistence: Inicializando variables para la persistencia: 4

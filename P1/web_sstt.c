@@ -32,12 +32,12 @@
 
 // Strings
 #define STRSERVER		"Server: web_sstt\r\n"
-#define STRTYPE			"Content-Type: text/html; charset=utf-8\r\n"
+#define STRTYPE			"Content-Type: %s; charset=utf-8\r\n"
 #define STRCNTLENGTH	"Content-Length: %d\r\n"
 #define STRCONNECT		"Connection: Keep-Alive\r\n"
 #define STRKEEPA		"Keep-Alive: timeout=5, max=1000\r\n"
 #define STRCOOKIE		"Cookie: ccount="
-#define STRSETCOOK		"Set-Cookie: ccount=%d\r\n"
+#define STRSETCOOK		"Set-Cookie: ccount=%d; Max-Age=120\r\n"
 #define STROK			"HTTP/1.1 200 OK\r\n"
 #define STRBADREQUEST 	"HTTP/1.1 400 Bad Request\r\n"
 #define STRFORBIDDEN 	"HTTP/1.1 403 Forbidden\r\n"
@@ -143,7 +143,7 @@ int getCookie(char * buffer) {
     const char *ptrcookie = strstr(buffer, STRCOOKIE);
 	// Si no encuentra la cookie
 	if(ptrcookie == NULL){
-		return -1;
+		return 0;
 	}else{
 		ptrcookie += strlen(STRCOOKIE);
 		char * eoc = strchr(ptrcookie, '*');
@@ -192,7 +192,7 @@ void sendMessage(int fd, char * header, char *content, int cookie) {
 	// Campo Server
 	strcat(head, STRSERVER);
 	// Campo Content-Type
-	strcat(head, STRTYPE);
+	sprintf(head + strlen(head), STRTYPE, "text/html");
 	// Campo Content-Length
 	int contentLength = strlen(body);
 	sprintf(head + strlen(head), STRCNTLENGTH, contentLength);
@@ -274,7 +274,7 @@ void sendFile(int fd, int file, char *ext, int cookie){
 	// Campo Server
 	strcat(head, STRSERVER);
 	// Campo Content-Type
-	strcat(head, STRTYPE);
+	sprintf(head + strlen(head), STRTYPE, ext);
 	// Campo Content-Length
 	int contentLength = lseek(file, 0, SEEK_END);
 	sprintf(head + strlen(head), STRCNTLENGTH, contentLength);
@@ -290,61 +290,19 @@ void sendFile(int fd, int file, char *ext, int cookie){
 	strcat(head, STRKEEPA);
 	// Campo COOKIE
 	sprintf(head + strlen(head), STRSETCOOK, cookie);
-	// ----- Cargamos la cabecera ----
+	// ----- Enviamos la cabecera ----
 	strcat(head, "\r\n");
-	int gotHead = 1;
-	size_t readed;
-	// Variable para leer el contenido del archivo
-	char fileContent [BUFSIZE];
-	// ----- Enviamos el cuerpo -----
-	// ----- Si el archivo es demasiado grande se fragmenta -----
-	/*do{
-		// ----- Enviar mensaje -----
-		debug(LOG, "sending", "Loop para el envio del archivo", fd);
-		// El tamaño del mensaje es el buffer
-		int sizeMessage = BUFSIZE;
-		// Pero si tiene cabecera es menor
-		if(gotHead)
-			sizeMessage -= strlen(head);
-		// Leemos la cantidad de bytes disponibles
-		readed = read(file, fileContent, sizeMessage);
-		if(readed == 0) break;
-		printf("Tamaño para leer: %d\n", sizeMessage);
-		printf("He leido: %d\n", readed);
-		printf("Pero en realidad: %d\n", strlen(fileContent));
-		// Ensamblamos el mensaje con la cabecera (si la hay)
-		char message [BUFSIZE] = {0}; 
-		if (gotHead){
-			strcat(message, head);
-			strcat(message, fileContent);
-		}else
-			strcat(message, fileContent);
-		printf("El tam total del mensaje es: %d\n", strlen(message));
-		// Enviamos el mensaje
-		int writed;
-		int total = 0;
-		debug(LOG, "send: content", message, fd);
-		while ((writed = write(fd, message, strlen(message) - total)) > 0) {
-			total += writed;
-		}
-		printf("He mandado: %d\n", total);
-		if (writed < 0){
-			debug(ERROR, "send: socket ", "Error al escribir por el socket", fd);
-			close(fd);
-			close(file);
-			exit(1);
-		}
-		memset(message, 0, BUFSIZE);
-		// Eliminamos la cabecera
-		gotHead = 0;
-		total=0;
-		// Miramos si queda algo por mandar
-	}while(readed > 0);
-
-	// ----- Cerramos el archivo -----
+	write(fd, head, strlen(head));
+	debug(LOG, "send: content", head, fd);
+	// ---- Enviar el archivo ----
+	int nbytes;
+	while ((nbytes = read(file, body, BUFSIZE)) > 0)
+	{
+		write(fd, body, nbytes);
+		debug(LOG, "send: content", body, fd);
+	}
 	debug(LOG, "sending", "Terminado correctamente", fd);
 	close(file);
-*/
 }
 
 void process_web_request(int descriptorFichero)
@@ -404,9 +362,7 @@ void process_web_request(int descriptorFichero)
 		// Generamos la cookie en base a su valor anterior
 		//
 		debug(LOG, "request", "Generando el valor de la cookie", descriptorFichero);
-		if (strncmp(buffer, "Cookie", 6) == 0) {
-   			cookie = getCookie(buffer) + 1;
-   		}
+   		cookie = getCookie(buffer) + 1;
 		//
 		// Si el valor de cookie no es valido cerrar conexión
 		// si el valor es valido se enviará la cookie
@@ -426,11 +382,11 @@ void process_web_request(int descriptorFichero)
 		//
 		//	TRATAR LOS CASOS DE LOS DIFERENTES METODOS QUE SE USAN
 		//
-		debug(LOG, "request", "Parseando petición...", descriptorFichero);
-		char *path = parserFL(buffer);
-
 		// ----------- Petición de tipo GET ----------- 
 		if(strncmp("GET", buffer, 3) == 0){
+			debug(LOG, "request", "petición de tipo GET", descriptorFichero);
+			debug(LOG, "request", "Parseando petición...", descriptorFichero);
+			char *path = parserFL(buffer);
 			if (strstr(path, "../") != NULL || strstr(path, "//") != NULL){
 				//
 				//	Como se trata el caso de acceso ilegal a directorios superiores de la
@@ -479,7 +435,19 @@ void process_web_request(int descriptorFichero)
 		}
 		//  ----------- Petición de tipo POST ----------- 
 		else if (strncmp("POST", buffer, 4) == 0){
-
+			debug(LOG, "request", "petición de tipo POST", descriptorFichero);
+			debug(LOG, "request", "Parseando petición...", descriptorFichero);
+			char *body = strstr(buffer, "****") + 10;
+			if (body == NULL){
+				sendError(descriptorFichero, 400, cookie);
+				debug(ERROR, "POST: request", "Error en el formato", descriptorFichero);
+				close(descriptorFichero);
+				exit(1);
+			}
+			if(strncmp(EMAIL, body, strlen(EMAIL)) == 0){
+				debug(LOG, "request: post", "email correcto", descriptorFichero);
+				sendMessage(descriptorFichero, STROK, "<html><h1>EMAIL CORRECTO</h1></html>", cookie);
+			}
 		}
 		//  ----------- Petición NO IMPLEMENTADA ----------- 
 		else if (strncmp("HEAD", buffer, 4) == 0 || strncmp("PUT", buffer, 3) == 0){
@@ -497,22 +465,7 @@ void process_web_request(int descriptorFichero)
 		}
 		debug(LOG, "request", "...Petición parseaeda",  descriptorFichero);
 
-		//
-		//	Como se trata el caso excepcional de la URL que no apunta a ningún fichero
-		//	html
-		//
-		
-		
-		//
-		//	Evaluar el tipo de fichero que se está solicitando, y actuar en
-		//	consecuencia devolviendolo si se soporta u devolviendo el error correspondiente en otro caso
-		//
-		
-		
-		//
-		//	En caso de que el fichero sea soportado, exista, etc. se envia el fichero con la cabecera
-		//	correspondiente, y el envio del fichero se hace en blockes de un máximo de  8kB
-		//
+
 		debug(LOG, "persistence", "Inicializando variables para la persistencia",  descriptorFichero);
 		FD_ZERO(&readfds);
 		FD_SET(descriptorFichero, &readfds);
@@ -522,7 +475,7 @@ void process_web_request(int descriptorFichero)
 	while (select(descriptorFichero +1, &readfds, NULL, NULL, &timeout));
 	
 	close(descriptorFichero);
-	exit(1);
+	exit(EXIT_SUCCESS);
 }
 
 int main(int argc, char **argv)
